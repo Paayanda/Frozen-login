@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olaf Snow Form</title>
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #4fc3f7, #81d4fa);
+      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f9ff;
+      height: 100vh;
+      position: relative;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1.5rem;
+      user-select: none;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    .snow-form {
+      background: rgba(255, 255, 255, 0.209);
+      backdrop-filter: blur(1px);
+      padding: 20px;
+      max-width: 400px;
+      margin: 80px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      color: #f0f9ff;
+      text-align: center;
+    }
+
+    .snow-form h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 0 6px #81d4fa;
+    }
+
+    .snow-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      text-shadow: 0 0 3px #a0c4ff;
+      text-align: left;
+    }
+
+    .snow-form input[type="text"],
+    .snow-form input[type="email"],
+    .snow-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      box-shadow: inset 0 0 5px #81d4fa;
+      transition: background 0.3s ease;
+    }
+
+    .snow-form input[type="text"]:focus,
+    .snow-form input[type="email"]:focus,
+    .snow-form textarea:focus {
+      background: rgba(255, 255, 255, 0.4);
+      outline: none;
+    }
+
+    .snow-form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: #00bcd4;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 12px #00bcd4;
+      transition: background 0.3s ease;
+    }
+
+    .snow-form button:hover {
+      background: #0097a7;
+      box-shadow: 0 0 18px #0097a7;
+    }
+
+    .olaf-img {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 200px;
+      filter: drop-shadow(0 0 4px #006391);
+    }
+    .elsa-img {
+        position: fixed; 
+        bottom: 0; 
+        right: 0; 
+        width: 30%; 
+        z-index: 10; 
+        filter: drop-shadow(0 0 8px #fff);
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    const snowflakeCount = 40;
+
+    for(let i = 0; i < snowflakeCount; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = (5 + Math.random() * 10) + 's';
+      snowflake.style.fontSize = (12 + Math.random() * 20) + 'px';
+      snowflake.style.opacity = Math.random();
+      snowflake.textContent = '❄';
+      snowflake.style.animationDelay = (Math.random() * 10) + 's';
+      document.body.appendChild(snowflake);
+    }
+  </script>
+<img
+src="[CITYPNG.COM]Elsa Frozen 2 Anna Olaf Images Transparent - 1000x1000.png"
+alt="Elsa" class="elsa-img"
+/>
+  <img
+    src="6958424_preview.png"
+    alt="Olaf"
+    class="olaf-img"
+  />
+
+  <form class="snow-form">
+    <h2>Contact Olaf</h2>
+
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Type your name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="your@email.com" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" placeholder="Write something cool..." required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+
+</body>
+</html>
